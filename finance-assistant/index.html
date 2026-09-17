@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Personal Finance Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <a class="portfolio-link" href="../" aria-label="Return to Aditt Mahadik’s portfolio">← Back to portfolio</a>
+
+    <div class="container">
+
+        <header>
+            <h1>💰 AI Personal Finance Assistant</h1>
+            <p>Analyze your monthly budget with Amazon Bedrock</p>
+        </header>
+
+        <div class="card">
+
+            <h2>Monthly Budget</h2>
+
+            <div class="grid">
+
+                <div class="input-group">
+                    <label>Monthly Income</label>
+                    <input id="income" type="number" placeholder="Enter your monthly income" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label>Housing</label>
+                    <input id="housing" type="number" placeholder="Monthly housing cost" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label>Food</label>
+                    <input id="food" type="number" placeholder="Monthly food expenses" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label>Transportation</label>
+                    <input id="transportation" type="number" placeholder="Monthly transportation cost" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label>Utilities</label>
+                    <input id="utilities" type="number" placeholder="Monthly utilities cost" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label>Debt Payments</label>
+                    <input id="debt" type="number" placeholder="Monthly debt payments" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label>Entertainment</label>
+                    <input id="entertainment" type="number" placeholder="Monthly entertainment expenses" min="0" step="0.01">
+                </div>
+
+                <div class="input-group">
+                    <label>Other Expenses</label>
+                    <input id="other" type="number" placeholder="Monthly other expenses" min="0" step="0.01">
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Savings Goal</label>
+
+                <input
+                    id="goal"
+                    type="text"
+                    placeholder="Save $5,000 Emergency Fund">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Ask the AI</label>
+
+                <textarea
+                    id="question"
+                    rows="4"
+                    placeholder="How can I save more money?"></textarea>
+
+            </div>
+
+            <button id="analyzeButton">
+                Analyze My Budget
+            </button>
+
+        </div>
+
+        <div class="results">
+
+            <div class="summary">
+
+                <h2>📊 Financial Summary</h2>
+
+                <div class="summary-grid">
+
+                    <div class="summary-card">
+                        <h3>Income</h3>
+                        <p id="incomeResult">$0</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Expenses</h3>
+                        <p id="expenseResult">$0</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Remaining</h3>
+                        <p id="remainingResult">$0</p>
+                    </div>
+
+                    <div class="summary-card">
+    <h3>Savings Rate</h3>
+    <p id="savingsResult">0%</p>
+</div>
+
+</div> <!-- closes summary-grid -->
+
+<div class="insight-grid">
+
+        <div class="insight-card">
+            <span class="insight-label">Budget Score</span>
+            <strong id="budgetScore">0 / 100</strong>
+        </div>
+
+        <div class="insight-card">
+            <span class="insight-label">Largest Expense</span>
+            <strong id="largestExpense">Not available</strong>
+        </div>
+
+        <div class="insight-card">
+            <span class="insight-label">Projected Annual Savings</span>
+            <strong id="annualSavings">$0.00</strong>
+        </div>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h3>Monthly Spending Breakdown</h3>
+
+        <div class="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+                </div>
+
+            </div>
+
+            <div class="ai-response">
+
+    <div class="response-header">
+        <div>
+            <h2>🤖 AI Financial Coach</h2>
+            <p>Your personalized budget analysis</p>
+        </div>
+
+        <div id="healthBadge" class="health-badge">
+            Not Analyzed
+        </div>
+    </div>
+
+    <div class="analysis-grid">
+
+        <div class="analysis-card summary-analysis">
+            <h3>📝 Financial Overview</h3>
+            <p id="analysisSummary">
+                Your financial overview will appear here.
+            </p>
+        </div>
+
+        <div class="analysis-card recommendations-card">
+            <h3>💡 Recommendations</h3>
+
+            <ol id="recommendationsList">
+                <li>Your recommendations will appear here.</li>
+            </ol>
+        </div>
+
+        <div class="analysis-card action-card">
+            <h3>📅 This Week's Action</h3>
+            <p id="weeklyAction">
+                Your weekly action will appear here.
+            </p>
+        </div>
+
+        <div class="analysis-card goal-card">
+            <h3>🎯 Goal Strategy</h3>
+            <p id="goalAdvice">
+                Advice about your financial goal will appear here.
+            </p>
+        </div>
+
+        <div class="analysis-card warning-card">
+            <h3>⚠️ Important Note</h3>
+            <p id="warning">
+                Important budget information will appear here.
+            </p>
+        </div>
+
+    </div>
+
+    <p class="disclaimer" id="disclaimer">
+        This application is for educational purposes only.
+    </p>
+
+</div>
+
+        </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
